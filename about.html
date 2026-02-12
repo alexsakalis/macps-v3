@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
+  <a href="#main-content" class="skip-link"><span class="lang en">Skip to main content</span><span class="lang fr" style="display:none;">Aller au contenu principal</span></a>
   <header class="custom-navbar">
     <div class="navbar-inner">
       <button class="navbar-toggle" onclick="toggleMobileNav()" aria-label="Menu">☰</button>
@@ -41,6 +42,7 @@
     </div>
   </header>
 
+  <main id="main-content">
   <section class="about-section fade" data-fade style="padding-top: 4rem;">
     <div class="container">
       <div class="section-header">
@@ -58,14 +60,14 @@
       </div>
       <div class="mission-vision-cards">
         <div class="card">
-          <img src="mission.jpg" alt="Mission" />
+          <img src="mission.jpg" alt="Mission" loading="lazy" />
           <h2 class="lang en">Our Mission</h2>
           <h2 class="lang fr" style="display: none;">Notre mission</h2>
           <p class="lang en">Our mission is to deliver <span class="macps-blue"><strong>seamless, intelligent, and accessible payment infrastructure</strong></span> that makes doing business easier across Canada.</p>
           <p class="lang fr" style="display: none;">Notre mission est de fournir une <span class="macps-blue"><strong>infrastructure de paiement fluide, intelligente et accessible</strong></span> qui facilite les affaires à travers le Canada.</p>
         </div>
         <div class="card">
-          <img src="vision.jpg" alt="Vision" />
+          <img src="vision.jpg" alt="Vision" loading="lazy" />
           <h2 class="lang en">Our Vision</h2>
           <h2 class="lang fr" style="display: none;">Notre vision</h2>
           <p class="lang en">To become the backbone of Canadian digital commerce by offering <span class="macps-blue"><strong>versatile, secure, and forward-thinking payment solutions</strong></span>.</p>
@@ -99,6 +101,7 @@
       </p>
     </div>
   </section>
+  </main>
 
   <footer class="fade" data-fade>
     <p><i class="fas fa-credit-card-front"></i> © 2025 MACPS — Tous droits réservés / All rights reserved.</p>

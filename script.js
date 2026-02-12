@@ -76,6 +76,9 @@ window.addEventListener("load", () => {
   // FAQ accordion
   initFaqAccordion();
 
+  // Back to top button
+  initBackToTop();
+
   // Ensure videos are playsinline for mobile
   document.querySelectorAll("video").forEach(v => {
     v.setAttribute("playsinline", "true");
@@ -212,6 +215,34 @@ function initFaqAccordion() {
         btn.setAttribute("aria-expanded", "true");
       }
     });
+  });
+}
+
+// BACK TO TOP
+function initBackToTop() {
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "back-to-top";
+  btn.setAttribute("aria-label", "Back to top");
+  btn.innerHTML = "<i class=\"fas fa-arrow-up\"></i>";
+  btn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+  document.body.appendChild(btn);
+
+  let ticking = false;
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        if (window.scrollY > 400) {
+          btn.classList.add("is-visible");
+        } else {
+          btn.classList.remove("is-visible");
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
   });
 }
 

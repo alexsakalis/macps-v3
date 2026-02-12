@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
+  <a href="#main-content" class="skip-link"><span class="lang en">Skip to main content</span><span class="lang fr" style="display:none;">Aller au contenu principal</span></a>
   <header class="custom-navbar">
     <div class="navbar-inner">
       <button class="navbar-toggle" onclick="toggleMobileNav()" aria-label="Menu">☰</button>
@@ -41,6 +42,7 @@
     </div>
   </header>
 
+  <main id="main-content">
   <section id="solutions" class="solutions-section fade" data-fade style="padding-top: 4rem;">
     <div class="container">
       <div class="section-header">
@@ -138,7 +140,7 @@
           </div>
         </div>
         <div class="feature-gif-wrapper">
-          <img src="creditcard.gif" alt="Credit Card Animation" class="circular-gif" />
+          <img src="creditcard.gif" alt="Credit Card Animation" class="circular-gif" loading="lazy" />
         </div>
       </div>
     </div>
@@ -153,6 +155,7 @@
       </div>
     </div>
   </section>
+  </main>
 
   <footer class="fade" data-fade>
     <p><i class="fas fa-credit-card-front"></i> © 2025 MACPS — Tous droits réservés / All rights reserved.</p>

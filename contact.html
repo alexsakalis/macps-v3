@@ -22,6 +22,7 @@
   <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 </head>
 <body>
+  <a href="#main-content" class="skip-link"><span class="lang en">Skip to main content</span><span class="lang fr" style="display:none;">Aller au contenu principal</span></a>
   <header class="custom-navbar">
     <div class="navbar-inner">
       <button class="navbar-toggle" onclick="toggleMobileNav()" aria-label="Menu">☰</button>
@@ -42,6 +43,7 @@
     </div>
   </header>
 
+  <main id="main-content">
   <section id="book" class="fade" data-fade style="padding-top: 4rem;">
     <div class="container book-section">
       <div class="section-header">
@@ -50,7 +52,7 @@
         <p class="booking-subtitle lang en" style="display: none;">Schedule a personalized call with our team to explore how <span class="macps-blue">MACPS</span> can improve your payment systems.</p>
       </div>
       <div class="booking-image-wrapper">
-        <img src="meeting.jpg" alt="Consultation meeting" class="booking-image" />
+        <img src="meeting.jpg" alt="Consultation meeting" class="booking-image" loading="lazy" />
       </div>
       <div class="calendly-container">
         <div class="calendly-inline-widget" data-url="https://calendly.com/macps" style="min-width:320px; height:630px;"></div>
@@ -95,8 +97,9 @@
       </div>
     </div>
   </section>
+  </main>
 
-  <footer class="fade" data-fade">
+  <footer class="fade" data-fade>
     <p><i class="fas fa-credit-card-front"></i> © 2025 MACPS — Tous droits réservés / All rights reserved.</p>
     <nav style="margin-top: 0.75rem; font-size: 0.9rem;">
       <a href="index.html" style="color: rgba(255,255,255,0.8); margin: 0 0.5rem;">Home</a>
