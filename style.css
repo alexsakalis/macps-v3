@@ -146,17 +146,23 @@ img, video {
 .navbar-logo {
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-shrink: 0;
   text-decoration: none;
-  transition: opacity 0.2s ease;
+  background: #fff;
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .navbar-logo:hover {
-  opacity: 0.9;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transform: translateY(-1px);
 }
 
 .navbar-logo-img {
-  height: 40px;
+  height: 36px;
   width: auto;
   display: block;
 }
@@ -274,8 +280,12 @@ img, video {
     order: 1;
   }
 
+  .navbar-logo {
+    padding: 6px 12px;
+  }
+
   .navbar-logo-img {
-    height: 36px;
+    height: 32px;
   }
 
   .nav-right {
