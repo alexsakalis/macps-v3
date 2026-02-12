@@ -76,6 +76,9 @@ window.addEventListener("load", () => {
   // FAQ accordion
   initFaqAccordion();
 
+  // Industry dropdowns (Who we help page)
+  initIndustryDropdowns();
+
   // Back to top button
   initBackToTop();
 
@@ -196,6 +199,19 @@ function initGenericSlideshow() {
   }
 
   showSlides();
+}
+
+// INDUSTRY DROPDOWNS (Who we help page)
+function initIndustryDropdowns() {
+  const triggers = document.querySelectorAll(".industry-dropdown-trigger");
+  triggers.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const item = btn.closest(".industry-dropdown");
+      const isOpen = item.classList.contains("is-open");
+      item.classList.toggle("is-open", !isOpen);
+      btn.setAttribute("aria-expanded", !isOpen ? "true" : "false");
+    });
+  });
 }
 
 // FAQ ACCORDION
