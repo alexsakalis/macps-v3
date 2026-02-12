@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <link rel="icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","name":"MACPS","url":"https://macps.ca","logo":"https://macps.ca/images/macps-logo-512.png"}
+  </script>
+  <title>About MACPS — Mission, Vision & Payment Expertise | Canadian Payment Solutions</title>
+  <meta name="description" content="Learn about MACPS: our mission to deliver seamless payment infrastructure across Canada, our vision for digital commerce, and what sets us apart — North American coverage, PCI-DSS compliance, 24/7 support." />
+  <meta name="keywords" content="about MACPS, payment processing Canada, merchant services, PCI-DSS, Canadian payment solutions" />
+  <link rel="canonical" href="https://macps.ca/about.html" />
+  <meta property="og:title" content="About MACPS — Mission & Vision">
+  <meta property="og:url" content="https://macps.ca/about.html" />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <header class="custom-navbar">
+    <div class="navbar-inner">
+      <button class="navbar-toggle" onclick="toggleMobileNav()">☰</button>
+      <nav class="nav-links left-nav">
+        <a href="solutions.html"><span class="lang en">ACCEPT PAYMENTS</span><span class="lang fr" style="display:none;">ACCEPTER LES PAIEMENTS</span></a>
+        <a href="solutions.html#industries"><span class="lang en">INDUSTRIES</span><span class="lang fr" style="display:none;">SECTEURS</span></a>
+        <a href="how-it-works.html" class="hide-on-mobile"><span class="lang en">HOW IT WORKS</span><span class="lang fr" style="display:none;">COMMENT ÇA FONCTIONNE</span></a>
+      </nav>
+      <div class="logo-wrapper">
+        <a href="index.html" class="logo-circle"><img src="MACPS.png" alt="MACPS Logo" class="center-logo" /></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-links right-nav">
+          <a href="contact.html#book"><span class="lang en">CONSULTATION</span><span class="lang fr" style="display:none;">CONSULTATION</span></a>
+          <a href="contact.html"><span class="lang en">CONTACT</span><span class="lang fr" style="display:none;">CONTACT</span></a>
+        </nav>
+        <button id="lang-toggle">Français</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="about-section fade" data-fade style="padding-top: 4rem;">
+    <div class="container">
+      <div class="section-header">
+        <h1><span class="lang en">About <span class="macps-blue">MACPS</span></span><span class="lang fr" style="display:none;">À propos de <span class="macps-blue">MACPS</span></span></h1>
+      </div>
+      <div class="about-video">
+        <p class="lang en" style="text-align: center; font-weight: bold;"><i class="fas fa-play-circle"></i> Watch our introduction video</p>
+        <p class="lang fr" style="text-align: center; font-weight: bold; display: none;"><i class="fas fa-play-circle"></i> Regardez notre vidéo d'introduction</p>
+        <video id="video-en" class="lang en" controls style="width: 100%; max-width: 900px; margin: 2rem auto; display: block;">
+          <source src="MACPS-EN-FINAL.mp4" type="video/mp4">Your browser does not support the video tag.
+        </video>
+        <video id="video-fr" class="lang fr" controls style="width: 100%; max-width: 900px; margin: 2rem auto; display: none;">
+          <source src="MACPS-FR-FINAL.mp4" type="video/mp4">Votre navigateur ne prend pas en charge la balise vidéo.
+        </video>
+      </div>
+      <div class="mission-vision-cards">
+        <div class="card">
+          <img src="mission.jpg" alt="Mission" />
+          <h2 class="lang en">Our Mission</h2>
+          <h2 class="lang fr" style="display: none;">Notre mission</h2>
+          <p class="lang en">Our mission is to deliver <span class="macps-blue"><strong>seamless, intelligent, and accessible payment infrastructure</strong></span> that makes doing business easier across Canada.</p>
+          <p class="lang fr" style="display: none;">Notre mission est de fournir une <span class="macps-blue"><strong>infrastructure de paiement fluide, intelligente et accessible</strong></span> qui facilite les affaires à travers le Canada.</p>
+        </div>
+        <div class="card">
+          <img src="vision.jpg" alt="Vision" />
+          <h2 class="lang en">Our Vision</h2>
+          <h2 class="lang fr" style="display: none;">Notre vision</h2>
+          <p class="lang en">To become the backbone of Canadian digital commerce by offering <span class="macps-blue"><strong>versatile, secure, and forward-thinking payment solutions</strong></span>.</p>
+          <p class="lang fr" style="display: none;">Devenir la colonne vertébrale du commerce numérique canadien en offrant des <span class="macps-blue"><strong>solutions de paiement polyvalentes, sécurisées et tournées vers l'avenir</strong></span>.</p>
+        </div>
+      </div>
+      <div class="about-content">
+        <h2 class="lang en"><i class="fas fa-star-half-alt"></i> What Sets Us Apart</h2>
+        <h2 class="lang fr" style="display: none;"><i class="fas fa-star-half-alt"></i> Ce qui nous distingue</h2>
+        <ul class="about-list lang en">
+          <li><span class="macps-blue"><strong>North American Coverage</strong></span>: Supporting transactions across Canada & USA in both official languages.</li>
+          <li><span class="macps-blue"><strong>Fiat Payment Expertise</strong></span>: Accept all major credit cards, bank transfers, and local payment methods.</li>
+          <li><span class="macps-blue"><strong>Compliance & Security</strong></span>: Fully PCI-DSS compliant, with secure processing and fraud protection tools.</li>
+          <li><span class="macps-blue"><strong>Scalable Technology</strong></span>: Our infrastructure grows with your business, without the growing pains.</li>
+          <li><span class="macps-blue"><strong>24/7 Expert Support</strong></span>: Around-the-clock assistance to keep your operations running smoothly.</li>
+        </ul>
+        <ul class="about-list lang fr" style="display: none;">
+          <li><span class="macps-blue"><strong>Couverture nord-américaine</strong></span> : Transactions prises en charge partout au Canada et aux États-Unis dans les deux langues officielles.</li>
+          <li><span class="macps-blue"><strong>Expertise en paiements fiduciaires</strong></span> : Acceptez toutes les principales cartes de crédit, virements bancaires et méthodes locales.</li>
+          <li><span class="macps-blue"><strong>Conformité & sécurité</strong></span> : Conformité totale PCI-DSS, avec traitement sécurisé et outils anti-fraude.</li>
+          <li><span class="macps-blue"><strong>Technologie évolutive</strong></span> : Notre infrastructure évolue avec votre entreprise, sans les inconvénients.</li>
+          <li><span class="macps-blue"><strong>Support 24/7</strong></span> : Une assistance continue pour maintenir votre activité sans interruption.</li>
+        </ul>
+        <div class="about-quote">
+          <p class="lang en"><em>"At MACPS, we don't just power payments — we power possibilities."</em></p>
+          <p class="lang fr" style="display: none;"><em>« Chez MACPS, nous ne propulsons pas seulement les paiements — nous propulsons les opportunités. »</em></p>
+        </div>
+      </div>
+      <p style="text-align: center; margin-top: 2rem;">
+        <a href="contact.html#book" class="hero-cta-button primary small"><span class="lang en">Book a free consultation</span><span class="lang fr" style="display:none;">Réserver une consultation gratuite</span></a>
+      </p>
+    </div>
+  </section>
+
+  <footer class="fade" data-fade>
+    <p><i class="fas fa-credit-card-front"></i> © 2025 MACPS — Tous droits réservés / All rights reserved.</p>
+    <nav style="margin-top: 0.75rem; font-size: 0.9rem;">
+      <a href="index.html" style="color: rgba(255,255,255,0.8); margin: 0 0.5rem;">Home</a>
+      <a href="about.html" style="color: rgba(255,255,255,0.8); margin: 0 0.5rem;"><span class="lang en">About</span><span class="lang fr" style="display:none;">À propos</span></a>
+      <a href="solutions.html" style="color: rgba(255,255,255,0.8); margin: 0 0.5rem;">Solutions</a>
+      <a href="how-it-works.html" style="color: rgba(255,255,255,0.8); margin: 0 0.5rem;"><span class="lang en">How It Works</span><span class="lang fr" style="display:none;">Comment ça marche</span></a>
+      <a href="testimonials.html" style="color: rgba(255,255,255,0.8); margin: 0 0.5rem;"><span class="lang en">Testimonials</span><span class="lang fr" style="display:none;">Témoignages</span></a>
+      <a href="contact.html" style="color: rgba(255,255,255,0.8); margin: 0 0.5rem;">Contact</a>
+    </nav>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

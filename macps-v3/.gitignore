@@ -1,0 +1,48 @@
+########################################
+# OS / SYSTEM FILES
+########################################
+.DS_Store
+Thumbs.db
+
+########################################
+# NODE / PACKAGE MANAGERS (if you add Node later)
+########################################
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+########################################
+# BUILD / DIST (if you add build tools later)
+########################################
+dist/
+build/
+
+########################################
+# ENVIRONMENT / SECRETS
+########################################
+.env
+.env.local
+.env.*.local
+
+########################################
+# MEDIA FILES (DO NOT TRACK IN GIT)
+########################################
+*.mp4
+*.mov
+*.avi
+*.wmv
+*.gif
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.svg
+
+########################################
+# OTHER FILES YOU MAY WANT IGNORED
+########################################
+*.zip
+*.tar
+*.tar.gz
+*.log
