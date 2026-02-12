@@ -93,10 +93,7 @@ function applyLanguage(lang) {
     el.style.display = lang === "en" ? "" : "none";
   });
 
-  const toggle = document.getElementById("lang-toggle");
-  if (toggle) {
-    toggle.textContent = lang === "fr" ? "English" : "Français";
-  }
+  // Lang toggle button content is driven by .lang.en / .lang.fr spans inside it
 }
 
 // TESTIMONIAL CAROUSEL
@@ -197,8 +194,7 @@ function initGenericSlideshow() {
 
 // MOBILE NAV
 function toggleMobileNav() {
-  document.querySelector(".left-nav")?.classList.toggle("show");
-  document.querySelector(".right-nav")?.classList.toggle("show");
+  document.querySelector(".nav-links")?.classList.toggle("show");
 }
 
 // OPTIONAL CHAT WIDGET (only runs if markup exists)

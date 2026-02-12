@@ -24,21 +24,19 @@
 <body>
   <header class="custom-navbar">
     <div class="navbar-inner">
-      <button class="navbar-toggle" onclick="toggleMobileNav()">☰</button>
-      <nav class="nav-links left-nav">
-        <a href="solutions.html"><span class="lang en">ACCEPT PAYMENTS</span><span class="lang fr" style="display:none;">ACCEPTER LES PAIEMENTS</span></a>
-        <a href="industries.html"><span class="lang en">INDUSTRIES</span><span class="lang fr" style="display:none;">SECTEURS</span></a>
-        <a href="how-it-works.html" class="hide-on-mobile"><span class="lang en">HOW IT WORKS</span><span class="lang fr" style="display:none;">COMMENT ÇA FONCTIONNE</span></a>
+      <button class="navbar-toggle" onclick="toggleMobileNav()" aria-label="Menu">☰</button>
+      <a href="index.html" class="navbar-logo">
+        <img src="MACPS.png" alt="MACPS" class="navbar-logo-img" />
+      </a>
+      <nav class="nav-links">
+        <a href="solutions.html"><span class="lang en">Solutions</span><span class="lang fr" style="display:none;">Solutions</span></a>
+        <a href="industries.html"><span class="lang en">Industries</span><span class="lang fr" style="display:none;">Secteurs</span></a>
+        <a href="how-it-works.html" class="hide-on-mobile"><span class="lang en">How it works</span><span class="lang fr" style="display:none;">Comment ça marche</span></a>
+        <a href="contact.html"><span class="lang en">Contact</span><span class="lang fr" style="display:none;">Contact</span></a>
       </nav>
-      <div class="logo-wrapper">
-        <a href="index.html" class="logo-circle"><img src="MACPS.png" alt="MACPS Logo" class="center-logo" /></a>
-      </div>
       <div class="nav-right">
-        <nav class="nav-links right-nav">
-          <a href="contact.html#book"><span class="lang en">CONSULTATION</span><span class="lang fr" style="display:none;">CONSULTATION</span></a>
-          <a href="contact.html"><span class="lang en">CONTACT</span><span class="lang fr" style="display:none;">CONTACT</span></a>
-        </nav>
-        <button id="lang-toggle">Français</button>
+        <button type="button" id="lang-toggle" class="nav-lang-btn" aria-label="Toggle language"><span class="lang en">FR</span><span class="lang fr" style="display:none;">EN</span></button>
+        <a href="contact.html#book" class="nav-cta"><span class="lang en">Get a quote</span><span class="lang fr" style="display:none;">Obtenir un devis</span></a>
       </div>
     </div>
   </header>
