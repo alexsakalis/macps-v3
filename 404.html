@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page not found — MACPS</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="images/macps-logo-512.png">
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .error-section { padding: 6rem 1.5rem; text-align: center; min-height: 60vh; display: flex; align-items: center; justify-content: center; }
+    .error-section h1 { font-size: clamp(4rem, 12vw, 8rem); font-weight: 800; color: var(--color-primary, #0d6efd); margin-bottom: 0.5rem; line-height: 1; }
+    .error-section p { font-size: 1.25rem; color: var(--color-text-muted, #5c6370); margin-bottom: 2rem; max-width: 400px; margin-left: auto; margin-right: auto; }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header class="custom-navbar">
+    <div class="navbar-inner">
+      <button class="navbar-toggle" onclick="toggleMobileNav()" aria-label="Menu">☰</button>
+      <a href="index.html" class="navbar-logo">
+        <img src="MACPS.png" alt="MACPS" class="navbar-logo-img" />
+      </a>
+      <nav class="nav-links">
+        <a href="solutions.html">Solutions</a>
+        <a href="industries.html">Industries</a>
+        <a href="how-it-works.html" class="hide-on-mobile">How it works</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav-right">
+        <a href="contact.html#book" class="nav-cta">Get a quote</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+  <section class="error-section">
+    <div class="container">
+      <h1>404</h1>
+      <p>This page doesn't exist or has been moved.</p>
+      <a href="index.html" class="hero-cta-button primary"><i class="fas fa-home"></i> Back to home</a>
+    </div>
+  </section>
+  </main>
+
+  <footer class="fade" data-fade>
+    <p><i class="fas fa-credit-card-front"></i> © 2025 MACPS — Tous droits réservés / All rights reserved.</p>
+    <nav style="margin-top: 0.75rem; font-size: 0.9rem;">
+      <a href="index.html" style="color: rgba(255,255,255,0.8); margin: 0 0.5rem;">Home</a>
+      <a href="about.html" style="color: rgba(255,255,255,0.8); margin: 0 0.5rem;">About</a>
+      <a href="solutions.html" style="color: rgba(255,255,255,0.8); margin: 0 0.5rem;">Solutions</a>
+      <a href="industries.html" style="color: rgba(255,255,255,0.8); margin: 0 0.5rem;">Industries</a>
+      <a href="how-it-works.html" style="color: rgba(255,255,255,0.8); margin: 0 0.5rem;">How It Works</a>
+      <a href="testimonials.html" style="color: rgba(255,255,255,0.8); margin: 0 0.5rem;">Testimonials</a>
+      <a href="faq.html" style="color: rgba(255,255,255,0.8); margin: 0 0.5rem;">FAQ</a>
+      <a href="contact.html" style="color: rgba(255,255,255,0.8); margin: 0 0.5rem;">Contact</a>
+    </nav>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

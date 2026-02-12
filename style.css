@@ -135,6 +135,9 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   padding-top: 72px;
   font-family: var(--font);
   font-size: var(--text-base);
@@ -142,6 +145,10 @@ body {
   color: var(--color-text);
   background-color: var(--color-bg);
   -webkit-font-smoothing: antialiased;
+}
+
+main {
+  flex: 1 0 auto;
 }
 
 img, video {
@@ -827,7 +834,7 @@ section {
 
 .industries-page.industries-section {
   padding-top: var(--space-2xl);
-  min-height: 60vh;
+  padding-bottom: var(--space-3xl);
   background: var(--color-bg-warm);
 }
 
@@ -1451,6 +1458,7 @@ section {
 
 /* ========== Footer ========== */
 footer {
+  flex-shrink: 0;
   background: var(--color-dark);
   color: var(--color-dark-text);
   text-align: center;
