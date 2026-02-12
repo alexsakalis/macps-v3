@@ -1286,6 +1286,107 @@ section {
   }
 }
 
+/* ========== FAQ ========== */
+.faq-section {
+  padding: var(--space-3xl) var(--space-md);
+  background: var(--color-bg-warm);
+}
+
+.faq-page.faq-section {
+  padding-top: var(--space-2xl);
+  min-height: 60vh;
+}
+
+.faq-list {
+  max-width: 720px;
+  margin: var(--space-xl) auto 0;
+}
+
+.faq-item {
+  background: var(--color-card);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  margin-bottom: var(--space-sm);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.faq-item:hover {
+  border-color: var(--color-border-strong);
+  box-shadow: var(--shadow-md);
+}
+
+.faq-item.is-open {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  background: none;
+  border: none;
+  font-family: var(--font);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.faq-question:hover {
+  background: var(--color-bg-warm);
+}
+
+.faq-question:focus {
+  outline: none;
+}
+
+.faq-question:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.faq-icon {
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  transition: transform 0.25s ease;
+}
+
+.faq-item.is-open .faq-icon {
+  transform: rotate(180deg);
+  color: var(--color-primary);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-item.is-open .faq-answer {
+  max-height: 400px;
+}
+
+.faq-answer p {
+  padding: 0 var(--space-lg) var(--space-lg);
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: var(--leading-relaxed);
+}
+
+.faq-answer p:first-child {
+  padding-top: 0;
+}
+
 /* ========== Footer ========== */
 footer {
   background: var(--color-dark);

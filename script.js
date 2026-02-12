@@ -73,6 +73,9 @@ window.addEventListener("load", () => {
   // Testimonial carousel
   initTestimonialCarousel();
 
+  // FAQ accordion
+  initFaqAccordion();
+
   // Ensure videos are playsinline for mobile
   document.querySelectorAll("video").forEach(v => {
     v.setAttribute("playsinline", "true");
@@ -190,6 +193,26 @@ function initGenericSlideshow() {
   }
 
   showSlides();
+}
+
+// FAQ ACCORDION
+function initFaqAccordion() {
+  const questions = document.querySelectorAll(".faq-question");
+  questions.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const item = btn.closest(".faq-item");
+      const isOpen = item.classList.contains("is-open");
+      document.querySelectorAll(".faq-item").forEach((el) => {
+        el.classList.remove("is-open");
+        const q = el.querySelector(".faq-question");
+        if (q) q.setAttribute("aria-expanded", "false");
+      });
+      if (!isOpen) {
+        item.classList.add("is-open");
+        btn.setAttribute("aria-expanded", "true");
+      }
+    });
+  });
 }
 
 // MOBILE NAV
