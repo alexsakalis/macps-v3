@@ -406,6 +406,104 @@ img, video {
   font-size: var(--text-sm);
 }
 
+/* Hero bullets (GOAT-style) */
+.hero-bullets {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-sm) var(--space-xl);
+  margin-bottom: var(--space-xl);
+  padding: 0;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  opacity: 0.95;
+}
+
+.hero-bullets li {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.hero-bullets li::before {
+  content: "✓";
+  color: #7dd3fc;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.hero-cta-quote {
+  background: #059669 !important;
+  color: #fff !important;
+  border: none !important;
+  padding: 16px 32px !important;
+  font-size: 1.0625rem !important;
+}
+
+.hero-cta-quote:hover {
+  background: #047857 !important;
+  color: #fff !important;
+}
+
+/* ========== Stats section (GOAT-style) ========== */
+.stats-section {
+  padding: var(--space-3xl) var(--space-md);
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.stats-heading {
+  text-align: center;
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-xl);
+  letter-spacing: -0.02em;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.stat-number {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  color: var(--color-primary);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.stat-label {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .hero-bullets {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+}
+
 /* ========== Sections (shared) ========== */
 section {
   width: 100%;
@@ -622,6 +720,12 @@ section {
 .industries-section {
   padding: var(--space-3xl) var(--space-md);
   background: var(--color-bg);
+}
+
+.industries-page.industries-section {
+  padding-top: var(--space-2xl);
+  min-height: 60vh;
+  background: var(--color-bg-warm);
 }
 
 .industries-grid {
