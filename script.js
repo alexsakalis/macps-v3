@@ -201,13 +201,24 @@ function initGenericSlideshow() {
   showSlides();
 }
 
-// INDUSTRY DROPDOWNS (Who we help page)
+// INDUSTRY DROPDOWNS (Who we help page) — accordion: only one open at a time
 function initIndustryDropdowns() {
   const triggers = document.querySelectorAll(".industry-dropdown-trigger");
+  const container = document.querySelector(".industry-dropdowns");
   triggers.forEach((btn) => {
     btn.addEventListener("click", () => {
       const item = btn.closest(".industry-dropdown");
       const isOpen = item.classList.contains("is-open");
+      // Close any other open dropdown first
+      if (container) {
+        container.querySelectorAll(".industry-dropdown.is-open").forEach((openEl) => {
+          if (openEl !== item) {
+            openEl.classList.remove("is-open");
+            const openBtn = openEl.querySelector(".industry-dropdown-trigger");
+            if (openBtn) openBtn.setAttribute("aria-expanded", "false");
+          }
+        });
+      }
       item.classList.toggle("is-open", !isOpen);
       btn.setAttribute("aria-expanded", !isOpen ? "true" : "false");
     });
