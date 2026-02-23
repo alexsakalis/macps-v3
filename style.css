@@ -606,6 +606,13 @@ section {
   letter-spacing: -0.02em;
 }
 
+.section-header h1 i,
+.section-header h2 i {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0.35rem;
+}
+
 .section-subtitle {
   font-size: var(--text-lg);
   color: var(--color-text-muted);
@@ -632,6 +639,7 @@ section {
   box-shadow: var(--shadow-card);
   border: 1px solid var(--color-border);
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  text-align: center;
 }
 
 .step-card:hover {
@@ -652,12 +660,17 @@ section {
   font-weight: 700;
   font-size: 1.125rem;
   margin-bottom: var(--space-md);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .step-icon {
   font-size: 1.75rem;
   color: var(--color-primary);
   margin-bottom: var(--space-sm);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .step-card h3 {
@@ -826,6 +839,7 @@ section {
   box-shadow: var(--shadow-sm);
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
@@ -1023,6 +1037,7 @@ section {
   box-shadow: var(--shadow-card);
   border: 1px solid var(--color-border);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  text-align: center;
 }
 
 .solution-card:hover {
@@ -1034,6 +1049,9 @@ section {
   font-size: 1.75rem;
   color: var(--color-primary);
   margin-bottom: var(--space-sm);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .solution-card h3 {
@@ -1104,6 +1122,9 @@ section {
   font-size: 1.75rem;
   color: var(--color-primary);
   margin-bottom: var(--space-sm);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .feature-card h4 {
