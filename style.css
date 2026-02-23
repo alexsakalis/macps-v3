@@ -863,6 +863,7 @@ section {
   transition: box-shadow 0.2s ease, border-color 0.2s ease;
   display: flex;
   flex-direction: column;
+  isolation: isolate;
 }
 
 .industry-dropdown:hover {
@@ -951,11 +952,14 @@ section {
 .industry-dropdown-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.35s ease;
+  visibility: hidden;
+  transition: max-height 0.35s ease, visibility 0s linear 0.35s;
 }
 
 .industry-dropdown.is-open .industry-dropdown-content {
   max-height: 420px;
+  visibility: visible;
+  transition: max-height 0.35s ease, visibility 0s linear 0s;
 }
 
 .industry-dropdown-content-inner {

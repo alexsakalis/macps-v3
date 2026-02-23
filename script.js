@@ -206,30 +206,33 @@ function initIndustryDropdowns() {
   const container = document.querySelector(".industry-dropdowns");
   if (!container) return;
 
-  const triggers = container.querySelectorAll(".industry-dropdown-trigger");
-  const allItems = container.querySelectorAll(".industry-dropdown");
+  // Single delegated listener so only one handler runs per click
+  container.addEventListener("click", (e) => {
+    const btn = e.target.closest(".industry-dropdown-trigger");
+    if (!btn) return;
 
-  triggers.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
-      const item = btn.closest(".industry-dropdown");
-      if (!item) return;
+    e.preventDefault();
+    e.stopPropagation();
 
-      const wasOpen = item.classList.contains("is-open");
+    const item = btn.closest(".industry-dropdown");
+    if (!item) return;
 
-      // Close every dropdown in this container first (ensures only one can be open)
-      allItems.forEach((el) => {
-        el.classList.remove("is-open");
-        const trigger = el.querySelector(".industry-dropdown-trigger");
-        if (trigger) trigger.setAttribute("aria-expanded", "false");
-      });
+    const wasOpen = item.classList.contains("is-open");
 
-      // If the clicked one was closed, open it; if it was open, leave all closed
-      if (!wasOpen) {
+    // 1. Close every dropdown immediately
+    container.querySelectorAll(".industry-dropdown").forEach((el) => {
+      el.classList.remove("is-open");
+      const t = el.querySelector(".industry-dropdown-trigger");
+      if (t) t.setAttribute("aria-expanded", "false");
+    });
+
+    // 2. Open the clicked one only in the next frame (after close has been applied)
+    if (!wasOpen) {
+      requestAnimationFrame(() => {
         item.classList.add("is-open");
         btn.setAttribute("aria-expanded", "true");
-      }
-    });
+      });
+    }
   });
 }
 
