@@ -132,6 +132,8 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -145,10 +147,14 @@ body {
   color: var(--color-text);
   background-color: var(--color-bg);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 main {
   flex: 1 0 auto;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 img, video {
@@ -392,10 +398,19 @@ img, video {
   }
 }
 
+/* ========== One-page flow (hero → how → about → industries) ========== */
+.hero-section,
+.how-section,
+.about-section,
+.industries-section {
+  scroll-margin-top: 72px;
+}
+
 /* ========== Hero ========== */
 .hero-section {
   position: relative;
   min-height: 100vh;
+  min-height: 100dvh;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -481,6 +496,7 @@ img, video {
   font-weight: 600;
   font-size: var(--text-base);
   padding: 14px 28px;
+  min-height: 48px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -513,6 +529,7 @@ img, video {
 
 .hero-cta-button.small {
   padding: 10px 22px;
+  min-height: 44px;
   font-size: var(--text-sm);
 }
 
@@ -571,7 +588,7 @@ section {
 
 .section-header {
   text-align: center;
-  margin-bottom: var(--space-2xl);
+  margin-bottom: var(--space-xl);
   max-width: 640px;
   margin-left: auto;
   margin-right: auto;
@@ -595,15 +612,15 @@ section {
 
 /* ========== How it works ========== */
 .how-section {
-  padding: var(--space-3xl) var(--space-md);
-  background: var(--color-bg);
+  padding: var(--space-2xl) var(--space-md);
+  background: var(--color-bg-warm);
 }
 
 .steps-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
   gap: var(--space-lg);
-  margin-top: var(--space-xl);
+  margin-top: var(--space-lg);
 }
 
 .step-card {
@@ -658,7 +675,7 @@ section {
 .about-section {
   max-width: 1200px;
   margin: 0 auto;
-  padding: var(--space-3xl) var(--space-lg);
+  padding: var(--space-2xl) var(--space-lg);
   background: var(--color-bg-warm);
 }
 
@@ -688,7 +705,7 @@ section {
   flex-wrap: wrap;
   gap: var(--space-xl);
   justify-content: center;
-  margin-bottom: var(--space-2xl);
+  margin-bottom: var(--space-xl);
 }
 
 .mission-vision-cards .card {
@@ -778,7 +795,7 @@ section {
 
 /* ========== Industries ========== */
 .industries-section {
-  padding: var(--space-3xl) var(--space-md);
+  padding: var(--space-2xl) var(--space-md);
   background: var(--color-bg);
 }
 
@@ -793,7 +810,7 @@ section {
   flex-wrap: wrap;
   gap: var(--space-sm);
   justify-content: center;
-  margin-top: var(--space-xl);
+  margin-top: var(--space-lg);
 }
 
 .industry-pill {
@@ -1135,7 +1152,7 @@ section {
 
 /* ========== Testimonials ========== */
 .testimonials-section {
-  padding: var(--space-3xl) var(--space-md);
+  padding: var(--space-2xl) var(--space-md);
   background: var(--color-bg-warm);
 }
 
@@ -1260,7 +1277,7 @@ section {
 
 /* ========== Experts CTA ========== */
 .experts-section {
-  padding: var(--space-3xl) var(--space-md);
+  padding: var(--space-2xl) var(--space-md);
   background: linear-gradient(160deg, var(--color-dark) 0%, var(--color-dark-soft) 100%);
   color: var(--color-dark-text);
 }
@@ -1504,7 +1521,7 @@ section {
 
 /* ========== FAQ ========== */
 .faq-section {
-  padding: var(--space-3xl) var(--space-md);
+  padding: var(--space-2xl) var(--space-md);
   background: var(--color-bg-warm);
 }
 
@@ -1627,17 +1644,25 @@ footer a:hover {
 .footer-contact {
   margin-top: 0.5rem;
   font-size: 0.9rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem 0.5rem;
 }
 
 .footer-contact a {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
+  min-height: 44px;
+  padding: 0.25rem 0;
+  justify-content: center;
 }
 
 .footer-sep {
   opacity: 0.6;
-  margin: 0 0.5rem;
+  margin: 0 0.25rem;
   pointer-events: none;
 }
 
@@ -1727,13 +1752,31 @@ footer a:hover {
     padding-top: 64px;
   }
 
-  html, body {
-    max-width: 100%;
-    overflow-x: hidden;
+  .hero-section,
+  .how-section,
+  .about-section,
+  .industries-section,
+  section[id] {
+    scroll-margin-top: 64px;
+  }
+
+  .container {
+    width: min(92%, 1200px);
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
   }
 
   input, textarea, select, button {
     font-size: 16px !important;
+  }
+
+  .hero-section {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  .hero-content {
+    padding: var(--space-xl) var(--space-md);
   }
 
   .hero-title {
@@ -1744,7 +1787,23 @@ footer a:hover {
     font-size: 1rem;
   }
 
+  .hero-cta-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-sm);
+  }
+
+  .hero-cta-row .hero-cta-button {
+    width: 100%;
+    min-height: 48px;
+  }
+
   .about-section {
+    padding: var(--space-2xl) var(--space-md);
+  }
+
+  .how-section,
+  .industries-section {
     padding: var(--space-2xl) var(--space-md);
   }
 
@@ -1769,6 +1828,10 @@ footer a:hover {
     margin-right: auto;
   }
 
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+
   .contact-grid {
     flex-direction: column;
     align-items: stretch;
@@ -1791,12 +1854,50 @@ footer a:hover {
     max-width: 100%;
   }
 
+  .contact-details {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .contact-detail-link {
+    min-height: 44px;
+    justify-content: center;
+  }
+
   .industries-grid {
     justify-content: center;
   }
 
   .industry-pill {
     justify-content: center;
+    min-height: 44px;
+    word-break: break-word;
+    text-align: center;
+  }
+
+  .nav-links a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-xs) 0;
+  }
+
+  .navbar-toggle {
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer-contact {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .footer-sep {
+    display: none;
   }
 
   .carousel-btn.prev { left: 8px; }
@@ -1810,5 +1911,9 @@ footer a:hover {
   .feature-card {
     width: 100%;
     max-width: 320px;
+  }
+
+  .testimonial-card {
+    padding: var(--space-lg) var(--space-md);
   }
 }

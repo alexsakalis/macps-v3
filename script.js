@@ -290,6 +290,13 @@ function toggleMobileNav() {
   document.querySelector(".nav-links")?.classList.toggle("show");
 }
 
+// Close mobile nav when a nav link is clicked (prevents stuck menu)
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    document.querySelector(".nav-links")?.classList.remove("show");
+  });
+});
+
 // OPTIONAL CHAT WIDGET (only runs if markup exists)
 function initChatIfPresent() {
   const chatForm = document.getElementById("chat-form");
