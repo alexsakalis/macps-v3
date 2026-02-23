@@ -1727,6 +1727,7 @@ footer a:hover {
 }
 
 /* ========== Scroll reveal — content appears as you scroll (no transition = no scroll lag) ========== */
+/* Same behavior on desktop and mobile: instant reveal when in view, no animation = smooth scroll */
 .fade {
   opacity: 0;
   visibility: hidden;
@@ -1739,9 +1740,22 @@ footer a:hover {
   transition: none;
 }
 
+/* Mobile & touch: same scroll-reveal result (instant, no lag) */
 @media (max-width: 768px), (pointer: coarse) {
   html {
     scroll-behavior: auto;
+  }
+
+  .fade {
+    opacity: 0;
+    visibility: hidden;
+    transition: none;
+  }
+
+  .fade.show {
+    opacity: 1;
+    visibility: visible;
+    transition: none;
   }
 }
 
