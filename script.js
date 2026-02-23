@@ -1,25 +1,41 @@
-// MAIN INITIALIZATION
-window.addEventListener("load", () => {
-  // Splash logo animation
+// Dismiss splash on first scroll/touch so the page is scrollable immediately
+function initSplashDismiss() {
   const splash = document.getElementById("splash-screen");
   const logo = document.getElementById("splash-logo");
+  if (!splash || !logo) return;
 
-  if (splash && logo) {
-    // fade logo in + scale
-    requestAnimationFrame(() => {
-      logo.style.opacity = "1";
-      logo.style.transform = "scale(1)";
-    });
-
-    // keep for ~2s, then fade overlay out
-    setTimeout(() => {
-      splash.style.opacity = "0";
-      setTimeout(() => {
-        splash.remove();
-      }, 600); // match CSS transition
-    }, 2000);
+  function removeSplash() {
+    splash.style.opacity = "0";
+    setTimeout(() => splash.remove(), 300);
+    document.documentElement.removeEventListener("touchstart", removeSplash, { passive: true });
+    document.documentElement.removeEventListener("scroll", removeSplash, { passive: true });
+    document.documentElement.removeEventListener("wheel", removeSplash, { passive: true });
   }
 
+  // First touch or scroll removes splash so user can scroll right away
+  document.documentElement.addEventListener("touchstart", removeSplash, { passive: true, once: true });
+  document.documentElement.addEventListener("scroll", removeSplash, { passive: true, once: true });
+  document.documentElement.addEventListener("wheel", removeSplash, { passive: true, once: true });
+
+  requestAnimationFrame(() => {
+    logo.style.opacity = "1";
+    logo.style.transform = "scale(1)";
+  });
+
+  // Auto-dismiss after 1.5s if user hasn't interacted
+  setTimeout(() => {
+    if (!document.getElementById("splash-screen")) return;
+    splash.style.opacity = "0";
+    setTimeout(() => splash.remove(), 300);
+  }, 1500);
+}
+
+// MAIN INITIALIZATION
+window.addEventListener("DOMContentLoaded", () => {
+  initSplashDismiss();
+});
+
+window.addEventListener("load", () => {
   // Language setup
   const savedLang = localStorage.getItem("lang") || "en";
   applyLanguage(savedLang);
