@@ -1726,41 +1726,22 @@ footer a:hover {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ========== Scroll reveal transition — content appears as you scroll down ========== */
+/* ========== Scroll reveal — content appears as you scroll (no transition = no scroll lag) ========== */
 .fade {
   opacity: 0;
-  transform: translateY(32px);
   visibility: hidden;
-  transition:
-    opacity 0.55s ease-out,
-    transform 0.55s ease-out,
-    visibility 0s linear 0.55s;
+  transition: none;
 }
 
 .fade.show {
   opacity: 1;
-  transform: translateY(0);
   visibility: visible;
-  transition: opacity 0.55s ease-out, transform 0.55s ease-out, visibility 0s linear 0s;
+  transition: none;
 }
 
-/* On mobile/touch: shorter slide so scroll stays smooth */
 @media (max-width: 768px), (pointer: coarse) {
   html {
     scroll-behavior: auto;
-  }
-
-  .fade {
-    transform: translateY(20px);
-    transition:
-      opacity 0.4s ease-out,
-      transform 0.4s ease-out,
-      visibility 0s linear 0.4s;
-  }
-
-  .fade.show {
-    transform: translateY(0);
-    transition: opacity 0.4s ease-out, transform 0.4s ease-out, visibility 0s linear 0s;
   }
 }
 
