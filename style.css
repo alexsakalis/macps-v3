@@ -1369,6 +1369,32 @@ section {
   min-width: 300px;
 }
 
+.contact-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.contact-detail-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: var(--text-base);
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contact-detail-link:hover {
+  color: var(--color-primary-dark);
+}
+
+.contact-detail-link i {
+  font-size: 1rem;
+}
+
 .contact-form-wrapper form {
   background: var(--color-card);
   padding: var(--space-xl);
@@ -1596,6 +1622,23 @@ footer a {
 
 footer a:hover {
   color: var(--color-dark-text);
+}
+
+.footer-contact {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.footer-contact a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.footer-sep {
+  opacity: 0.6;
+  margin: 0 0.5rem;
+  pointer-events: none;
 }
 
 /* ========== Form success ========== */
