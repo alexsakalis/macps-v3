@@ -63,7 +63,7 @@ window.addEventListener("load", () => {
         }
       });
     },
-    { threshold: 0.2 }
+    { threshold: 0.2, rootMargin: "0px" }
   );
   fadeElements.forEach(el => observer.observe(el));
 
@@ -264,12 +264,13 @@ function initBackToTop() {
   btn.setAttribute("aria-label", "Back to top");
   btn.innerHTML = "<i class=\"fas fa-arrow-up\"></i>";
   btn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    window.scrollTo({ top: 0, behavior: isTouch ? "auto" : "smooth" });
   });
   document.body.appendChild(btn);
 
   let ticking = false;
-  window.addEventListener("scroll", () => {
+  const onScroll = () => {
     if (!ticking) {
       requestAnimationFrame(() => {
         if (window.scrollY > 400) {
@@ -281,7 +282,8 @@ function initBackToTop() {
       });
       ticking = true;
     }
-  });
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
 }
 
 // MOBILE NAV

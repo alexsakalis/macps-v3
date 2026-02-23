@@ -134,6 +134,7 @@ html {
   scroll-behavior: smooth;
   overflow-x: hidden;
   max-width: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -149,6 +150,7 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
   max-width: 100%;
+  touch-action: manipulation;
 }
 
 main {
@@ -1706,6 +1708,22 @@ footer a:hover {
 .fade.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* On mobile/touch: lighter animation for smooth scrolling */
+@media (max-width: 768px), (pointer: coarse) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .fade {
+    transition: opacity 0.25s ease-out;
+    transform: none;
+  }
+
+  .fade.show {
+    transform: none;
+  }
 }
 
 /* ========== Future delivery ========== */
