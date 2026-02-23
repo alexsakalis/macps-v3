@@ -203,36 +203,32 @@ function initGenericSlideshow() {
 
 // INDUSTRY DROPDOWNS (Who we help page) — accordion: only one open at a time
 function initIndustryDropdowns() {
-  const triggers = document.querySelectorAll(".industry-dropdown-trigger");
   const container = document.querySelector(".industry-dropdowns");
-  // #region agent log
-  fetch('http://127.0.0.1:7242/ingest/ad609cfa-38c6-48dc-aff9-01a2b77818f9',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'script.js:initIndustryDropdowns',message:'init',data:{pathname:window.location.pathname,triggerCount:triggers.length,hasContainer:!!container},timestamp:Date.now(),hypothesisId:'H1-H3'})}).catch(()=>{});
-  // #endregion
-  triggers.forEach((btn, idx) => {
-    btn.addEventListener("click", () => {
+  if (!container) return;
+
+  const triggers = container.querySelectorAll(".industry-dropdown-trigger");
+  const allItems = container.querySelectorAll(".industry-dropdown");
+
+  triggers.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
       const item = btn.closest(".industry-dropdown");
-      const isOpen = item.classList.contains("is-open");
-      const openOthers = container ? container.querySelectorAll(".industry-dropdown.is-open") : [];
-      let closedCount = 0;
-      // Close any other open dropdown first
-      if (container) {
-        openOthers.forEach((openEl) => {
-          if (openEl !== item) {
-            openEl.classList.remove("is-open");
-            const openBtn = openEl.querySelector(".industry-dropdown-trigger");
-            if (openBtn) openBtn.setAttribute("aria-expanded", "false");
-            closedCount++;
-          }
-        });
+      if (!item) return;
+
+      const wasOpen = item.classList.contains("is-open");
+
+      // Close every dropdown in this container first (ensures only one can be open)
+      allItems.forEach((el) => {
+        el.classList.remove("is-open");
+        const trigger = el.querySelector(".industry-dropdown-trigger");
+        if (trigger) trigger.setAttribute("aria-expanded", "false");
+      });
+
+      // If the clicked one was closed, open it; if it was open, leave all closed
+      if (!wasOpen) {
+        item.classList.add("is-open");
+        btn.setAttribute("aria-expanded", "true");
       }
-      item.classList.toggle("is-open", !isOpen);
-      btn.setAttribute("aria-expanded", !isOpen ? "true" : "false");
-      const contentEl = item.querySelector(".industry-dropdown-content");
-      const inner = contentEl ? contentEl.querySelector(".industry-dropdown-content-inner") : null;
-      const innerHeight = inner ? inner.getBoundingClientRect().height : 0;
-      // #region agent log
-      fetch('http://127.0.0.1:7242/ingest/ad609cfa-38c6-48dc-aff9-01a2b77818f9',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'script.js:industryClick',message:'click',data:{triggerIndex:idx,isOpenBefore:isOpen,openOthersCount:openOthers.length,closedCount,isOpenAfter:item.classList.contains("is-open"),innerHeight,contentId:contentEl?contentEl.id:null},timestamp:Date.now(),hypothesisId:'H2-H5'})}).catch(()=>{});
-      // #endregion
     });
   });
 }
