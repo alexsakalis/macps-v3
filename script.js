@@ -77,7 +77,7 @@ window.addEventListener("DOMContentLoaded", () => {
           }
         });
       },
-      { threshold: 0.2, rootMargin: "0px" }
+      { threshold: 0.08, rootMargin: "0px 0px 80px 0px" }
     );
     fadeElements.forEach(el => observer.observe(el));
 
