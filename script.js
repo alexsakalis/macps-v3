@@ -30,13 +30,19 @@ function initSplashDismiss() {
   }, 1500);
 }
 
-// MAIN INITIALIZATION
+// Run when browser is idle (or after timeout) so scroll isn't blocked on new pages
+function whenIdle(cb, timeoutMs) {
+  if (typeof requestIdleCallback !== "undefined") {
+    requestIdleCallback(cb, { timeout: timeoutMs || 300 });
+  } else {
+    setTimeout(cb, 0);
+  }
+}
+
+// MAIN INITIALIZATION — critical UI on DOMContentLoaded so page is usable immediately
 window.addEventListener("DOMContentLoaded", () => {
   initSplashDismiss();
-});
 
-window.addEventListener("load", () => {
-  // Language setup
   const savedLang = localStorage.getItem("lang") || "en";
   applyLanguage(savedLang);
 
@@ -47,64 +53,45 @@ window.addEventListener("load", () => {
       const newLang = currentLang === "fr" ? "en" : "fr";
       localStorage.setItem("lang", newLang);
       applyLanguage(newLang);
-
-      // Pause and reset intro videos on language change
       const videoEN = document.getElementById("video-en");
       const videoFR = document.getElementById("video-fr");
-      if (videoEN) {
-        videoEN.pause();
-        videoEN.currentTime = 0;
-      }
-      if (videoFR) {
-        videoFR.pause();
-        videoFR.currentTime = 0;
-      }
+      if (videoEN) { videoEN.pause(); videoEN.currentTime = 0; }
+      if (videoFR) { videoFR.pause(); videoFR.currentTime = 0; }
     });
   }
 
-  // Form confirmation animation
   const success = document.getElementById("form-success");
   if (window.location.href.includes("#form-success") && success) {
     success.classList.add("show");
   }
 
-  // Scroll fade-in observer
-  const fadeElements = document.querySelectorAll("[data-fade]");
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.2, rootMargin: "0px" }
-  );
-  fadeElements.forEach(el => observer.observe(el));
+  // Defer heavy init so scrolling works right away when changing pages
+  whenIdle(() => {
+    const fadeElements = document.querySelectorAll("[data-fade]");
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2, rootMargin: "0px" }
+    );
+    fadeElements.forEach(el => observer.observe(el));
 
-  // Generic slideshow (if any)
-  initGenericSlideshow();
+    initGenericSlideshow();
+    initTestimonialCarousel();
+    initFaqAccordion();
+    initIndustryDropdowns();
+    initBackToTop();
 
-  // Testimonial carousel
-  initTestimonialCarousel();
-
-  // FAQ accordion
-  initFaqAccordion();
-
-  // Industry dropdowns (Who we help page)
-  initIndustryDropdowns();
-
-  // Back to top button
-  initBackToTop();
-
-  // Ensure videos are playsinline for mobile
-  document.querySelectorAll("video").forEach(v => {
-    v.setAttribute("playsinline", "true");
-  });
-
-  // Optional chat init (only if chat elements exist)
-  initChatIfPresent();
+    document.querySelectorAll("video").forEach(v => {
+      v.setAttribute("playsinline", "true");
+    });
+    initChatIfPresent();
+  }, 250);
 });
 
 // LANGUAGE
