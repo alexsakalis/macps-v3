@@ -351,6 +351,7 @@ img, video {
     flex-wrap: wrap;
     padding: var(--space-md);
     min-height: 56px;
+    position: relative;
   }
 
   .navbar-logo {
@@ -375,8 +376,13 @@ img, video {
     font-size: 0.875rem;
   }
 
+  /* Mobile menu overlays content so navbar bar stays one row — no overlap of page */
   .nav-links {
     display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
     flex-direction: column;
     align-items: center;
     width: 100%;
@@ -384,6 +390,10 @@ img, video {
     gap: var(--space-md);
     order: 3;
     margin: 0;
+    background: var(--color-dark);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    z-index: 999;
   }
 
   .nav-links.show {
@@ -1803,8 +1813,9 @@ footer a:hover {
 
 /* ========== Responsive ========== */
 @media (max-width: 768px) {
+  /* Match navbar bar height (inner + header padding) so content is never under the bar */
   body {
-    padding-top: 64px;
+    padding-top: 72px;
   }
 
   .hero-section,
