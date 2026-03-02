@@ -1813,9 +1813,9 @@ footer a:hover {
 
 /* ========== Responsive ========== */
 @media (max-width: 768px) {
-  /* Match navbar bar height (inner + header padding) so content is never under the bar */
   body {
-    padding-top: 72px;
+    /* Match mobile navbar height: header padding (2 * 16px) + inner (56px) = 88px */
+    padding-top: 88px;
   }
 
   .hero-section,
@@ -1823,7 +1823,7 @@ footer a:hover {
   .about-section,
   .industries-section,
   section[id] {
-    scroll-margin-top: 64px;
+    scroll-margin-top: 88px;
   }
 
   .container {
