@@ -1839,10 +1839,20 @@ footer a:hover {
   .hero-section {
     min-height: 100vh;
     min-height: 100dvh;
+    align-items: flex-start;
+  }
+
+  .hero-overlay {
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-top: 0;
   }
 
   .hero-content {
-    padding: var(--space-xl) var(--space-md);
+    padding: var(--space-md) var(--space-md) var(--space-2xl);
+    padding-top: var(--space-sm);
+    width: 100%;
+    max-width: 100%;
   }
 
   .hero-title {
