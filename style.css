@@ -1849,8 +1849,8 @@ footer a:hover {
   }
 
   .hero-content {
-    padding: var(--space-md) var(--space-md) var(--space-2xl);
-    padding-top: var(--space-sm);
+    padding: var(--space-xl) var(--space-md) var(--space-2xl);
+    padding-top: var(--space-lg);
     width: 100%;
     max-width: 100%;
   }
