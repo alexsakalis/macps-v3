@@ -1850,7 +1850,7 @@ footer a:hover {
 
   .hero-content {
     padding: var(--space-xl) var(--space-md) var(--space-2xl);
-    padding-top: var(--space-lg);
+    padding-top: var(--space-2xl);
     width: 100%;
     max-width: 100%;
   }
