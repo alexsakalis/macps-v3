@@ -878,6 +878,15 @@ section {
   .industry-dropdowns {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  /* Center the last industry card (Non-profits) on the last row */
+  .industry-dropdowns > .industry-dropdown:last-child {
+    grid-column: 1 / -1;
+    max-width: 420px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .industry-dropdown {
