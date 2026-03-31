@@ -9,9 +9,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Get latest code
+        uses: actions/checkout@v4
 
-      - name: Deploy via FTP
+      - name: Sync files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
           server: ${{ secrets.FTP_SERVER }}
@@ -19,4 +20,13 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./
           server-dir: /public_html/
-          log-level: verbose
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/.cursor/**
+            **/.vscode/**
+            .cpanel.yml
+            package.json
+            package-lock.json
+            README.md
