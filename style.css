@@ -412,10 +412,38 @@ img, video {
 
 /* ========== One-page flow (hero → how → about → industries) ========== */
 .hero-section,
+.film-section,
 .how-section,
 .about-section,
 .industries-section {
   scroll-margin-top: 72px;
+}
+
+/* ========== Brand film ========== */
+.film-section {
+  padding: var(--space-3xl) var(--space-md) var(--space-2xl);
+  background: var(--color-bg);
+}
+
+.film-section .section-header {
+  max-width: 820px;
+}
+
+.film-video {
+  display: block;
+  width: min(100%, 960px);
+  height: auto;
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+  border: 0;
+  border-radius: var(--radius-lg);
+  background: var(--color-dark);
+  box-shadow: var(--shadow-lg);
+}
+
+.film-cta {
+  text-align: center;
+  margin-top: var(--space-lg);
 }
 
 /* ========== Hero ========== */
